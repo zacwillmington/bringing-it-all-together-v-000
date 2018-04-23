@@ -64,7 +64,7 @@ class Dog
             self.create(name, breed)
         else
             dog = found.flatten
-
+            self.new_from_db(dog)
             # found.each do |dog|
             #     binding.pry
             #     if dog[1] == name && dog[2] == breed
