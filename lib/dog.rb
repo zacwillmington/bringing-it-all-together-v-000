@@ -68,7 +68,8 @@ class Dog
                 if dog[1] == name && dog[2] == breed
                     binding.pry
                     d = dog.flatten
-                    self.new_from_db(dog)
+                    self.new_from_db(d)
+                    binding.pry
                 end
             end
         end
