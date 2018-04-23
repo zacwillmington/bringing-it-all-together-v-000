@@ -67,14 +67,13 @@ class Dog
                 binding.pry
                 if dog[1] == name && dog[2] == breed
                     binding.pry
-                    new_dog = self.new(id: dog[0], name: dog[1], breed: dog[2])
-                    new_dog.save
+                    self.new_from_db
                 end
             end
         end
     end
 
-    def self.new_from_bd(row)
+    def self.new_from_db(row)
         new_dog = self.new(id: row[0], name: row[1],breed: row[2])
         new_dog
     end
