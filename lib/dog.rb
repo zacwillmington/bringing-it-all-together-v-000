@@ -91,8 +91,12 @@ class Dog
 
     def update
         sql = <<-SQL
-            UPDATE dogs name, breed VALUES (?, ?);
+            UPDATE dogs SET name = ?, breed = ? (?, ?)
+            WHERE id = ?;
+--             #UPDATE table_name
+-- SET column1 = value1, column2 = value2, ...
+-- WHERE condition;
         SQL
-        DB[:conn].execute(sql, self.name, self.breed)
+        DB[:conn].execute(sql, self.name, self.breed, self.id)
     end
 end
