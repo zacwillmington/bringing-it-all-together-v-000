@@ -63,21 +63,23 @@ class Dog
         if found.empty?
             self.create(name, breed)
         else
-            found.each do |dog|
-                binding.pry
-                if dog[1] == name && dog[2] == breed
-                    binding.pry
-                    d = dog.flatten
-                    self.new_from_db(d)
-                    binding.pry
-                end
-            end
+            dog = found.flatten
+
+            # found.each do |dog|
+            #     binding.pry
+            #     if dog[1] == name && dog[2] == breed
+            #         binding.pry
+            #         d = dog.flatten
+            #         self.new_from_db(d)
+            #         binding.pry
+            #     end
+
         end
     end
 
     def self.new_from_db(row)
         new_dog = self.new(id: row[0], name: row[1],breed: row[2])
-        new_dog
+        new_dog.save
     end
 
 
