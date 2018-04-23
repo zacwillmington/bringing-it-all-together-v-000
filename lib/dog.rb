@@ -62,7 +62,6 @@ class Dog
         if found.empty?
             self.create(name, breed)
         else
-            binding.pry
             self.new_from_bd(found)
         end
     end
