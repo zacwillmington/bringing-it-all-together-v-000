@@ -59,9 +59,12 @@ class Dog
             SELECT * FROM dogs WHERE name = ? and breed = ?;
         SQL
         found = DB[:conn].execute(sql, name, breed)
+        binding.pry
         if found.empty?
+            binding.pry
             self.create(name, breed)
         else
+            binding.pry
             dog = found.flatten
             self.new_from_db(dog)
             # found.each do |dog|
