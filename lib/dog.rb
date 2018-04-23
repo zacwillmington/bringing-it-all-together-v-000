@@ -61,10 +61,14 @@ class Dog
         found = DB[:conn].execute(sql, name, breed)
         binding.pry
         if found.empty?
-            binding.pry
             self.create(name, breed)
-    
-            
+        else 
+            found.each do |dog|
+                binding.pry
+                if dog[1] == name && dog[2] == breed
+                    self.new(id: dog[0], name: dog[1], breed: dog[2])
+                end
+            end
         end
     end
 
