@@ -62,10 +62,11 @@ class Dog
         binding.pry
         if found.empty?
             self.create(name, breed)
-        else 
+        else
             found.each do |dog|
                 binding.pry
                 if dog[1] == name && dog[2] == breed
+                    binding.pry
                     self.new(id: dog[0], name: dog[1], breed: dog[2])
                 end
             end
