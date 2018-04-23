@@ -58,12 +58,13 @@ class Dog
         sql =  <<-SQL
             SELECT * FROM dogs WHERE name = ? or breed = ?;
         SQL
-        binding.pry
         found = DB[:conn].execute(sql, name, breed)
+        binding.pry
         if found.empty?
+            binding.pry
             self.create(name, breed)
-        else
-            self.new_from_bd(found)
+    
+            
         end
     end
 
